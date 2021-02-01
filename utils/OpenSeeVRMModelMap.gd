@@ -1,6 +1,7 @@
 extends Spatial
 
 const OPEN_SEE: Resource = preload("res://utils/OpenSeeGD.tscn")
+const GLTF_UTIL: Resource = preload("res://utils/GltfUtil.gdns")
 
 # onready var gltf2_util: Node = $GLTF2Util
 
@@ -49,14 +50,17 @@ export var mouse_move_strength: float = 0.002
 ###############################################################################
 
 func _ready() -> void:
+	var gltf_util = GLTF_UTIL.new()
+	gltf_util.file_path = vrm_model_path
+	self.call_deferred("add_child", gltf_util)
 	# gltf2_util.load_file(vrm_model_path)
 	
-	var model_resource = load(vrm_model_scene)
-	model = model_resource.instance()
-	model.transform = model.transform.rotated(Vector3.UP, PI)
-	model_initial_transform = model.transform
-	model_parent_initial_transform = model_parent.transform
-	model_parent.call_deferred("add_child", model)
+	# var model_resource = load(vrm_model_scene)
+	# model = model_resource.instance()
+	# model.transform = model.transform.rotated(Vector3.UP, PI)
+	# model_initial_transform = model.transform
+	# model_parent_initial_transform = model_parent.transform
+	# model_parent.call_deferred("add_child", model)
 
 	# self.open_see = OPEN_SEE.instance()
 	# self.call_deferred("add_child", open_see)

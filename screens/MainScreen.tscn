@@ -13,6 +13,5 @@ transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.3583 )
 
 [node name="OpenSeeVRMModelMap" parent="." instance=ExtResource( 1 )]
-vrm_model_path = "C:\\Users\\theaz\\dev\\openseeface-gd\\assets\\vrm-models\\latifa\\Latifa_V2_VRM.vrm"
-vrm_model_scene = "res://entities/vrm/Latifa_V2_VRM.tscn"
+vrm_model_scene = "res://entities/vrm/AliciaSolid_vrm-051.tscn"
 apply_translation = false

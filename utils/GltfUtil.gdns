@@ -1,0 +1,8 @@
+[gd_resource type="NativeScript" load_steps=2 format=2]
+
+[ext_resource path="res://utils/GltfUtil.gdnlib" type="GDNativeLibrary" id=1]
+
+[resource]
+resource_name = "GLTFUtil"
+class_name = "GltfUtil"
+library = ExtResource( 1 )
