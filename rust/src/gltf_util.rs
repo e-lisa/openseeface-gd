@@ -4,6 +4,7 @@ use std::error::Error as StdError;
 use std::fs;
 use std::rc::Rc;
 
+use gdnative::api::MeshInstance;
 use gdnative::prelude::*;
 
 #[derive(NativeClass)]
@@ -44,9 +45,16 @@ impl GltfUtil {
 
         let main_scene = imp.doc.scenes().nth(0).expect("Main scene not found");
         for node in main_scene.nodes() {
-            // TODO we have mesh access
-            node.mesh().unwrap();
-            // TODO recursively access more nodes
+            let mesh = match node.mesh() {
+                Some(v) => v,
+                None => continue,
+            };
+
+            // Godot preloads skins into an array
+            // Might have to do some searching for all the skins?
+            let o_skin = node.skin();
+
+            let mut mesh_instance = MeshInstance::new();
         }
 
         Ok(())
